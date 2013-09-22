@@ -1,0 +1,25 @@
+/*	implement an algorithm to determine if a string has all unique characters. 
+	prototype:
+	bool allUnique(const string &str)
+	
+	testcase:
+	"abcdefg" -> true;
+	"abcdefa" -> false;
+	"" -> true;
+	"aa" -> false;
+
+	linear search with array: TC O(n)\SC O(n)
+*/
+
+	bool allUnique(const string &str){
+		bool track[256] = {0};
+		for(size_t i = 0; i < str.size(); ++i){
+			char c = str[i];
+			if(track[c] == 1){
+				return false;
+			} else {
+				track[c] = 1;
+			}
+		}
+		return true;
+	}
